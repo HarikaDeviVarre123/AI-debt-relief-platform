@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ink text-parchment font-body antialiased;
+    background-image:
+      radial-gradient(ellipse 900px 500px at 15% -10%, rgba(201, 162, 39, 0.08), transparent),
+      radial-gradient(ellipse 700px 500px at 100% 0%, rgba(79, 209, 174, 0.06), transparent);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display text-parchment;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4FD1AE;
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: rgba(201, 162, 39, 0.35);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0E1917;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #254038;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2E9678;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-surface border border-surface-border rounded-xl2 shadow-soft;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-gold text-ink-900 font-semibold
+           px-5 py-2.5 transition-all duration-200 hover:bg-gold-light hover:-translate-y-px
+           active:translate-y-0 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-surface-border
+           text-parchment font-medium px-5 py-2.5 transition-all duration-200
+           hover:border-mint hover:text-mint disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg text-parchment-dim font-medium
+           px-4 py-2 transition-colors duration-200 hover:text-mint;
+  }
+
+  .input-field {
+    @apply w-full bg-ink-800 border border-surface-border rounded-lg px-4 py-2.5 text-parchment
+           placeholder:text-parchment-faint focus:border-mint transition-colors duration-200;
+  }
+
+  .label-text {
+    @apply text-xs uppercase tracking-[0.14em] text-parchment-faint font-semibold;
+  }
+
+  .eyebrow {
+    @apply text-xs uppercase tracking-[0.2em] text-gold font-semibold;
+  }
+
+  .stat-value {
+    @apply font-mono text-3xl font-semibold text-parchment tabular-nums;
+  }
+
+  .divider {
+    @apply border-t border-surface-border;
+  }
+
+  .priority-Critical {
+    @apply bg-coral/15 text-coral border border-coral/30;
+  }
+  .priority-High {
+    @apply bg-gold/15 text-gold border border-gold/30;
+  }
+  .priority-Medium {
+    @apply bg-mint/15 text-mint border border-mint/30;
+  }
+  .priority-Low {
+    @apply bg-parchment/10 text-parchment-dim border border-parchment/20;
+  }
+}
