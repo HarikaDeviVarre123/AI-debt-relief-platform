@@ -32,6 +32,11 @@ logger = configure_logging()
 async def lifespan(app: FastAPI):
     logger.info("Starting FinRelief AI backend...")
     init_db()
+    try:
+        from app.utils.seed import seed
+        seed()
+    except Exception as e:
+        logger.warning("Auto-seed on startup skipped or failed: %s", e)
     yield
     logger.info("Shutting down FinRelief AI backend.")
 
